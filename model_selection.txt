@@ -1,0 +1,7 @@
+Use-case 1: Stock Market Price Prediction for Tesla Stock
+
+In this use-case, we will be using regression algorithm because the target variable is the stock-market price is a continuous value, instead of discrete.
+Regression is designed to predict continuous numerical values and our output in this case is stock price. In this exercise, we are interested in
+predicting the exact value of the Tesla stock, not classifying it into certain discrete categories. Our input includes historical stock prices and trade
+volumes and these features are numerical, which regression models are relatively well suited to handle. By viewing evaluation metrics such as mean squared
+errors and mean absolute errors, we can analyze the accuracy of such models by observing discrepancies between predicted values and actual values.
