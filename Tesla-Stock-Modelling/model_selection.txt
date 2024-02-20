@@ -1,7 +1,43 @@
-Use-case 1: Stock Market Price Prediction for Tesla Stock
 
-In this use-case, we will be using regression algorithm because the target variable is the stock-market price is a continuous value, instead of discrete.
-Regression is designed to predict continuous numerical values and our output in this case is stock price. In this exercise, we are interested in
-predicting the exact value of the Tesla stock, not classifying it into certain discrete categories. Our input includes historical stock prices and trade
+Beginner's Summary of ARIMA Stock Price Prediction
+
+Previously, I used a regression algorithm because the target variable is the stock-market price, which is a continuous value, instead of discrete.
+Regression is designed to predict continuous numerical values and our output in this case is stock price. I was interested in
+predicting the exact value of the Tesla stock, not classifying it into certain discrete categories. Our input included historical stock prices and trade
 volumes and these features are numerical, which regression models are relatively well suited to handle. By viewing evaluation metrics such as mean squared
 errors and mean absolute errors, we can analyze the accuracy of such models by observing discrepancies between predicted values and actual values.
+
+Forecasting stock prices is like trying to predict the path of a thrown ball while accounting for wind, gravity, and any obstacles. 
+In my project, I used a statistical method called ARIMA, which stands for Autoregressive Integrated Moving Average. It's a fancy way
+ of saying we use past data (like how a ball has moved before) to predict future movements.
+
+The Journey of Learning and Applying ARIMA
+
+Gathering Data:
+My first step was to get historical stock prices for Tesla from Yahoo Finance. This was as simple as just downloading the csv file from
+the yahoo finance page for Tesla.
+
+Checking the Ground Rules (Stationarity):
+Before making predictions, I needed to make sure that the data played by the rules of ARIMA - specifically, it needed to be 'stationary'. 
+This means that the stock prices don't have any trends or patterns that change over time. It's like making sure the ball isn't magnetized
+or doesn't have any weird spin. I used a statistical test called the Dickey-Fuller test to check this. The data wasn't stationary at first,
+so I had to adjust it by 'differencing' it, which is like focusing on how much the ball moves between each throw, rather than where it is.
+
+Fine-Tuning the Model:
+With a stationary series, I then had to find the right settings for the ARIMA model - the p, d, and q parameters. These are like the angle,
+force, and spin you'd apply to a ball you're throwing. I used the ACF and PACF plots, which are tools to help figure out these settings by
+showing patterns in the data.
+
+Fitting the Model:
+Once I had my settings, I fitted the ARIMA model to my historical data, which measures how well a model generalizes to similiar data.
+
+Making Predictions:
+Now for the main event: predicting future stock prices! I asked the model to predict the next 40 days of Tesla's stock price.
+
+What I Learned:
+The predictions weren't perfect and they missed the peaks and valleys of the actual stock prices. This reminds us that predicting stocks is
+notoriously tricky and even sophisticated models like ARIMA have their limits, especially my novice understanding of statistics.
+The diagnostics of the model showed that while the errors in my predictions were mostly random (a good thing!), the distribution of these
+errors wasn't ideal. This means that even though I couldn't see a pattern in my mistakes, they were still a bit messier than I'd like.
+I learned about different statistical concepts like "log likelihood" (how well the model fits), "AIC" and "BIC" (measures that balance the
+model's accuracy against its complexity), and tests like the Ljung-Box test (which checks if there's any leftover pattern in the errors).
